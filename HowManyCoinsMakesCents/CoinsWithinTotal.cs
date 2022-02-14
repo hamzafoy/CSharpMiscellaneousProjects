@@ -19,6 +19,7 @@ namespace CSharpMiscellaneousProjects_MoneyMaker
             double nickels = Math.Floor(remainingAmount / nickel);
             remainingAmount %= nickel;
             string returnedValue = $"Quarters: {quarters}\nDimes: {dimes}\nNickels: {nickels}\nPennies: {remainingAmount}";
+            Console.WriteLine(returnedValue);
             return returnedValue;
         }
     }
