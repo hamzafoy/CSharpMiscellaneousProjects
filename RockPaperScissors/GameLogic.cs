@@ -28,12 +28,20 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
             "< >",
             " u "
         };
-        
-        public static void PrintPick()
+
+        public static List<KeyValuePair<string, string>> gameMenu = new List<KeyValuePair<string, string>>()
         {
-            foreach (string item in scissor)
+            new KeyValuePair<string, string>("R", "rock"),
+            new KeyValuePair<string, string>("S", "scissor"),
+            new KeyValuePair<string, string>("P", "paper"),
+            new KeyValuePair<string, string>("Q", "quit")
+        };
+        
+        public static void RunConsole()
+        {
+            foreach(KeyValuePair<string, string> option in gameMenu)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{option.Key} {option.Value}");
             }
         }
     }
