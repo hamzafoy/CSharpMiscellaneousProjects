@@ -50,8 +50,34 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                     Console.WriteLine($"{option.Key} {option.Value}");
                 }
                 userInput = Console.ReadKey(true);
+                switch(userInput.Key.ToString())
+                {
+                    case "R":
+                        Console.WriteLine("\n");
+                        foreach(string piece in rock)
+                        {
+                            Console.WriteLine(piece);
+                        }
+                        Console.WriteLine("\n");
+                        break;
+                    case "S":
+                        Console.WriteLine("\n");
+                        foreach (string piece in scissor)
+                        {
+                            Console.WriteLine(piece);
+                        }
+                        Console.WriteLine("\n");
+                        break;
+                    case "P":
+                        Console.WriteLine("\n");
+                        foreach (string piece in paper)
+                        {
+                            Console.WriteLine(piece);
+                        }
+                        Console.WriteLine("\n");
+                        break;
+                }
             } while (userInput.Key.ToString() != "Q");
         }
     }
-
 }

@@ -18,8 +18,8 @@ namespace CSharpMiscellaneousProjects
         public static void Main(string[] args)
         {
             //MoneyMaker.FindCoinCountWithinTotal();
-            double testApproximation = ArchitecturalCalculation.ApproximateArea(rLength: 150, rWidth: 75, cRadius: 25, tBase: 100, tHeight: 200);
-            Console.WriteLine($"The approximate area of your house is: {Decimal.Round((decimal)testApproximation, 2)} meters");
+            //double testApproximation = ArchitecturalCalculation.ApproximateArea(rLength: 150, rWidth: 75, cRadius: 25, tBase: 100, tHeight: 200);
+            //Console.WriteLine($"The approximate area of your house is: {Decimal.Round((decimal)testApproximation, 2)} meters");
             GameConsole.RunConsole();
         }
     }
