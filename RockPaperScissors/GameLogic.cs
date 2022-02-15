@@ -31,18 +31,26 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
 
         public static List<KeyValuePair<string, string>> gameMenu = new List<KeyValuePair<string, string>>()
         {
-            new KeyValuePair<string, string>("R", "rock"),
-            new KeyValuePair<string, string>("S", "scissor"),
-            new KeyValuePair<string, string>("P", "paper"),
-            new KeyValuePair<string, string>("Q", "quit")
+            new KeyValuePair<string, string>("R", "Rock"),
+            new KeyValuePair<string, string>("S", "Scissor"),
+            new KeyValuePair<string, string>("P", "Paper"),
+            new KeyValuePair<string, string>("Q", "EXIT")
         };
         
         public static void RunConsole()
         {
-            foreach(KeyValuePair<string, string> option in gameMenu)
+            ConsoleKeyInfo userInput;
+            do
             {
-                Console.WriteLine($"{option.Key} {option.Value}");
-            }
+                Console.WriteLine("Welcome to Rock, Paper, Scissors, Shoot!");
+                Console.WriteLine("This small game is played through your terminal.");
+                Console.WriteLine("Find the menu below and press the appropriate button to choose or EXIT:");
+                foreach (KeyValuePair<string, string> option in gameMenu)
+                {
+                    Console.WriteLine($"{option.Key} {option.Value}");
+                }
+                userInput = Console.ReadKey(true);
+            } while (userInput.Key.ToString() != "Q");
         }
     }
 
