@@ -36,12 +36,20 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
             new KeyValuePair<string, string>("P", "Paper"),
             new KeyValuePair<string, string>("Q", "EXIT")
         };
+
+        public static string PrintGameResult(bool userWinConfirmation)
+        {
+            return (userWinConfirmation) ? "Congratulations, you won this round!" : "Unfortunately, you lost to the computer!";
+        }
         
         public static void RunConsole()
         {
             ConsoleKeyInfo userInput;
             do
             {
+                Random randomNum = new Random();
+                KeyValuePair<string, string> computerInput = gameMenu.ElementAt(randomNum.Next(gameMenu.Count - 1));
+                Console.WriteLine(computerInput.Key);
                 Console.WriteLine("Welcome to Rock, Paper, Scissors, Shoot!");
                 Console.WriteLine("This small game is played through your terminal.");
                 Console.WriteLine("Find the menu below and press the appropriate button to choose or EXIT:");
@@ -77,7 +85,16 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                         Console.WriteLine("\n");
                         break;
                 }
-            } while (userInput.Key.ToString() != "Q");
+                if (computerInput.Key == userInput.Key.ToString())
+                {
+                    Console.WriteLine($"Draw! You both played {computerInput.Key}");
+                }
+                else
+                {
+                    bool didPlayerWin = ((computerInput.Key == "P" && userInput.Key.ToString() == "S") || (computerInput.Key == "R" && userInput.Key.ToString() == "P") || (computerInput.Key == "S" && userInput.Key.ToString() == "R")) ? true : false;
+                    Console.WriteLine(PrintGameResult(didPlayerWin));
+                }
+                } while (userInput.Key.ToString() != "Q");
         }
     }
 }
