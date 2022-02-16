@@ -37,9 +37,9 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
             new KeyValuePair<string, string>("Q", "EXIT")
         };
 
-        public static string PrintGameResult(bool userWinConfirmation)
+        public static string PrintGameResult(bool userWinConfirmation, string computerChoice)
         {
-            return (userWinConfirmation) ? "Congratulations, you won this round!" : "Unfortunately, you lost to the computer!";
+            return (userWinConfirmation) ? "Congratulations, you won this round!" : $"Unfortunately, you lost to the computer who played {computerChoice}!";
         }
         
         public static void RunConsole()
@@ -49,7 +49,6 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
             {
                 Random randomNum = new Random();
                 KeyValuePair<string, string> computerInput = gameMenu.ElementAt(randomNum.Next(gameMenu.Count - 1));
-                Console.WriteLine(computerInput.Key);
                 Console.WriteLine("Welcome to Rock, Paper, Scissors, Shoot!");
                 Console.WriteLine("This small game is played through your terminal.");
                 Console.WriteLine("Find the menu below and press the appropriate button to choose or EXIT:");
@@ -87,12 +86,12 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                 }
                 if (computerInput.Key == userInput.Key.ToString())
                 {
-                    Console.WriteLine($"Draw! You both played {computerInput.Key}");
+                    Console.WriteLine($"Draw! You both played {computerInput.Value}");
                 }
                 else
                 {
                     bool didPlayerWin = ((computerInput.Key == "P" && userInput.Key.ToString() == "S") || (computerInput.Key == "R" && userInput.Key.ToString() == "P") || (computerInput.Key == "S" && userInput.Key.ToString() == "R")) ? true : false;
-                    Console.WriteLine(PrintGameResult(didPlayerWin));
+                    Console.WriteLine(PrintGameResult(didPlayerWin, computerChoice: computerInput.Value));
                 }
                 } while (userInput.Key.ToString() != "Q");
         }
