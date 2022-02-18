@@ -59,6 +59,8 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                 userInput = Console.ReadKey(true);
                 switch(userInput.Key.ToString())
                 {
+                    case "Q":
+                        break;
                     case "R":
                         Console.WriteLine("\n");
                         foreach(string piece in rock)
@@ -84,7 +86,11 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                         Console.WriteLine("\n");
                         break;
                 }
-                if (computerInput.Key == userInput.Key.ToString())
+                if(userInput.Key.ToString() == "Q")
+                {
+                    break;
+                }
+                else if (computerInput.Key == userInput.Key.ToString())
                 {
                     Console.WriteLine($"Draw! You both played {computerInput.Value}");
                 }
