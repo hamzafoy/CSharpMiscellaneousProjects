@@ -51,7 +51,7 @@ namespace CSharpMiscellaneousProjects_RockPaperScissors
                 KeyValuePair<string, string> computerInput = gameMenu.ElementAt(randomNum.Next(gameMenu.Count - 1));
                 Console.WriteLine("Welcome to Rock, Paper, Scissors, Shoot!");
                 Console.WriteLine("This small game is played through your terminal.");
-                Console.WriteLine("Find the menu below and press the appropriate button to choose or EXIT:");
+                Console.WriteLine("Look at the menu below and enter the button of your choice or type 'Q' to exit:");
                 foreach (KeyValuePair<string, string> option in gameMenu)
                 {
                     Console.WriteLine($"{option.Key} {option.Value}");
