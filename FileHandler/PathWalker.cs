@@ -16,5 +16,14 @@ namespace CSharpMiscellaneousProjects_FileHandler
             var fileName = Path.Join(directoryName, "text.txt");
             File.WriteAllText(fileName, "Can you read me?");
         }
+
+        public static void Printer(string folderName, string file, string content)
+        {
+            var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var directoryName = Path.Join(documents, folderName);
+            Directory.CreateDirectory(directoryName);
+            var fileName = Path.Join(directoryName, file);
+            File.WriteAllText(fileName, content);
+        }
     }
 }
