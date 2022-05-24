@@ -12,6 +12,7 @@ using CSharpMiscellaneousProjects_MoneyMaker;
 using CSharpMiscellaneousProjects_RockPaperScissors;
 using CSharpMiscellaneousProjects_HelloInManyLanguages;
 using CSharpMiscellaneousProjects_FileHandler;
+using CSharpMiscellaneousProjects_DotNetExamples;
 
 namespace CSharpMiscellaneousProjects
 {
@@ -24,7 +25,8 @@ namespace CSharpMiscellaneousProjects
             //Console.WriteLine($"The approximate area of your house is: {Decimal.Round((decimal)testApproximation, 2)} meters");
             //GameConsole.RunConsole();
             //PathWalker.Pathing();
-            Console.WriteLine(HelloMarhabaNihao.GreetMe());
+            //Console.WriteLine(HelloMarhabaNihao.GreetMe());
+            SerializeToJSON.readTextVersion();
         }
     }
 }
