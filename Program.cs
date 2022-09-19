@@ -20,13 +20,12 @@ namespace CSharpMiscellaneousProjects
     {
         public static void Main(string[] args)
         {
-            //MoneyMaker.FindCoinCountWithinTotal();
-            //double testApproximation = ArchitecturalCalculation.ApproximateArea(rLength: 150, rWidth: 75, cRadius: 25, tBase: 100, tHeight: 200);
-            //Console.WriteLine($"The approximate area of your house is: {Decimal.Round((decimal)testApproximation, 2)} meters");
-            //GameConsole.RunConsole();
-            //PathWalker.Pathing();
-            //Console.WriteLine(HelloMarhabaNihao.GreetMe());
-            SerializeToJSON.readTextVersion();
+            Console.WriteLine("What is your name?");
+            //string name = Console.ReadLine();
+            Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
+            //string lang = Console.ReadLine();
+            Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
+            //SerializeToJSON.readTextVersion();
         }
     }
 }

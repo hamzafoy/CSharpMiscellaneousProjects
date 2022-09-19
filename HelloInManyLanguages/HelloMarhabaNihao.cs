@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 
 namespace CSharpMiscellaneousProjects_HelloInManyLanguages
 {
-    public class HelloMarhabaNihao
+    public class HelloMarhabaSalam
     {
-        public static string GreetMe()
+        public static Dictionary<string, string> greetingDictionary = new Dictionary<string, string>()
         {
-            Console.WriteLine("What is your name?");
-            string name = Console.ReadLine();
-            Console.WriteLine("What language do you speak?");
-            Console.WriteLine("AR for Arabic, EN for English, SO for Somali");
-            string language = Console.ReadLine();
-            switch (language)
+            {"ARB", "Marhaban Kayfa haluk?"},
+            {"ENG", "Hello how are you?"},
+            {"SOM", "Salam iska warran?"}
+        };
+        public static string GreetMe(string name, string languageAbbreviation)
+        {
+            switch (languageAbbreviation)
             {
-                case "AR":
-                    return $"Merhaban {name}, kayfa haluka?";
-                case "EN":
-                    return $"Hello {name}, how are you?";
-                case "SO":
-                    return $"Salam {name}, iska warran?";
+                case "ARB":
+                    return greetingDictionary["ARB"];
+                case "ENG":
+                    return greetingDictionary["ENG"];
+                case "SOM":
+                    return greetingDictionary["SOM"];
                 default:
                     return $"Dunno what language you speak mate!";
             }
