@@ -8,22 +8,25 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
 {
     public class HelloMarhabaSalam
     {
-        public static Dictionary<string, string> greetingDictionary = new Dictionary<string, string>()
+        public static Dictionary<string, List<string>> greetingDictionary = new Dictionary<string, List<string>>()
         {
-            {"ARB", "Marhaban Kayfa haluk?"},
-            {"ENG", "Hello how are you?"},
-            {"SOM", "Salam iska warran?"}
+            {"ARB", new List<string>{"Marhaba", "kayfa", "haluk"} },
+            {"ENG", new List<string>{"Hello", "how", "are", "you"} },
+            {"SOM", new List<string>{"Salam", "iska", "warran"} }
         };
         public static string GreetMe(string name, string languageAbbreviation)
         {
             switch (languageAbbreviation)
             {
                 case "ARB":
-                    return greetingDictionary["ARB"];
+                    greetingDictionary["ARB"].Insert(1, name);
+                    return String.Join(" ", greetingDictionary["ARB"]);
                 case "ENG":
-                    return greetingDictionary["ENG"];
+                    greetingDictionary["ENG"].Insert(1, name);
+                    return String.Join(" ", greetingDictionary["ENG"]);
                 case "SOM":
-                    return greetingDictionary["SOM"];
+                    greetingDictionary["SOM"].Insert(1, name);
+                    return String.Join(" ", greetingDictionary["SOM"]);
                 default:
                     return $"Dunno what language you speak mate!";
             }
