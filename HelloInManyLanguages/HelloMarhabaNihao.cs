@@ -10,23 +10,23 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
     {
         public static Dictionary<string, List<string>> greetingDictionary = new Dictionary<string, List<string>>()
         {
-            {"ARB", new List<string>{"Marhaba", "kayfa", "haluk"} },
-            {"ENG", new List<string>{"Hello", "how", "are", "you"} },
-            {"SOM", new List<string>{"Salam", "iska", "warran"} }
+            {"ARB", new List<string>{"Marhaba ", ", ", "kayfa ", "haluk."} },
+            {"ENG", new List<string>{"Hello ", ", ", "how ", "are ", "you."} },
+            {"SOM", new List<string>{"Salam ", ", ", "iska ", "warran."} }
         };
         public static string GreetMe(string name, string languageAbbreviation)
         {
             switch (languageAbbreviation)
             {
                 case "ARB":
-                    greetingDictionary["ARB"].Insert(1, name);
-                    return String.Join(" ", greetingDictionary["ARB"]);
+                    greetingDictionary[languageAbbreviation].Insert(1, name);
+                    return String.Join("", greetingDictionary["ARB"]);
                 case "ENG":
-                    greetingDictionary["ENG"].Insert(1, name);
-                    return String.Join(" ", greetingDictionary["ENG"]);
+                    greetingDictionary[languageAbbreviation].Insert(1, name);
+                    return String.Join("", greetingDictionary["ENG"]);
                 case "SOM":
-                    greetingDictionary["SOM"].Insert(1, name);
-                    return String.Join(" ", greetingDictionary["SOM"]);
+                    greetingDictionary[languageAbbreviation].Insert(1, name);
+                    return String.Join("", greetingDictionary["SOM"]);
                 default:
                     return $"Dunno what language you speak mate!";
             }
