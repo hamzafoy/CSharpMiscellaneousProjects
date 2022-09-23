@@ -8,12 +8,19 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
 {
     public class HelloMarhabaSalam
     {
-        public static Dictionary<string, List<string>> greetingDictionary = new Dictionary<string, List<string>>()
+        private static Dictionary<string, List<string>> greetingDictionary = new()
         {
-            {"ARB", new List<string>{"Marhaba ", ", ", "kayfa ", "haluk."} },
-            {"ENG", new List<string>{"Hello ", ", ", "how ", "are ", "you."} },
-            {"SOM", new List<string>{"Salam ", ", ", "iska ", "warran."} }
+            { "ARB", new List<string> { "Marhaba ", ", ", "kayfa ", "haluk." } },
+            { "ENG", new List<string> { "Hello ", ", ", "how ", "are ", "you." } },
+            { "SOM", new List<string> { "Salam ", ", ", "iska ", "warran." } }
         };
+
+        public static Dictionary<string, List<string>> greeting
+        {
+            get { return greetingDictionary; }
+            set { greetingDictionary = value; }
+        }
+
         public static string GreetMe(string name, string languageAbbreviation)
         {
             switch (languageAbbreviation)
