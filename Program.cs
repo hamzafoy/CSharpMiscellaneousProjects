@@ -10,9 +10,10 @@ using System.Text;
 using CSharpMiscellaneousProjects_ArchitecturalApproximation;
 using CSharpMiscellaneousProjects_MoneyMaker;
 using CSharpMiscellaneousProjects_RockPaperScissors;
-using CSharpMiscellaneousProjects_HelloInManyLanguages;
 using CSharpMiscellaneousProjects_FileHandler;
 using CSharpMiscellaneousProjects_DotNetExamples;
+using CSharpMiscellaneousProjects_HelloInManyLanguages;
+using CSharpMiscellaneousProjects_NumberOfCharacters;
 
 namespace CSharpMiscellaneousProjects
 {
@@ -21,10 +22,10 @@ namespace CSharpMiscellaneousProjects
         public static void Main(string[] args)
         {
             Console.WriteLine("What is your name?");
-            //string name = Console.ReadLine();
             Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
-            //string lang = Console.ReadLine();
             Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
+            Console.WriteLine("Type a word to count its letters.");
+            Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
             //SerializeToJSON.readTextVersion();
         }
     }
