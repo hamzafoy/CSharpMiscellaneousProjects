@@ -17,10 +17,27 @@ using CSharpMiscellaneousProjects_NumberOfCharacters;
 
 namespace CSharpMiscellaneousProjects
 {
+    public static class Remote
+    {
+        private static char selection = 'X';
+        public static char Selection
+        {
+            get { return selection; }
+            set { selection = value; }
+        }
+
+        public static void GetSelection()
+        {
+            Console.WriteLine("Submit A to change your name and be greeted. Submit B to submit a word to count its letters.");
+            selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
+            Console.WriteLine(selection);
+        }
+    }
     public class Program
     {
         public static void Main(string[] args)
         {
+            Remote.GetSelection();
             Console.WriteLine("What is your name?");
             Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
             Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
