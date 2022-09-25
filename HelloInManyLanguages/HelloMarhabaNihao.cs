@@ -37,35 +37,14 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
 
         public static string GreetMe(string languageAbbreviation, string name = null)
         {
-            switch (languageAbbreviation)
+            switch (languageAbbreviation != null)
             {
-                case "ARB":
+                case true:
                     if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
                     {
                         greetingDictionary[languageAbbreviation].Insert(1, name);
                         return String.Join("", greetingDictionary[languageAbbreviation]);
                     } else
-                    {
-                        return String.Join("", greetingDictionary[languageAbbreviation]);
-                    }
-                    
-                case "ENG":
-                    if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
-                    {
-                        greetingDictionary[languageAbbreviation].Insert(1, name);
-                        return String.Join("", greetingDictionary[languageAbbreviation]);
-                    }
-                    else
-                    {
-                        return String.Join("", greetingDictionary[languageAbbreviation]);
-                    }
-                case "SOM":
-                    if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
-                    {
-                        greetingDictionary[languageAbbreviation].Insert(1, name);
-                        return String.Join("", greetingDictionary[languageAbbreviation]);
-                    }
-                    else
                     {
                         return String.Join("", greetingDictionary[languageAbbreviation]);
                     }

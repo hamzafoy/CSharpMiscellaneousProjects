@@ -54,7 +54,8 @@ namespace CSharpMiscellaneousProjects
             {
                 Console.WriteLine("Select your language:");
                 Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali");
-                Language = Console.ReadLine();
+                var lang = Console.ReadLine();
+                Language = lang != "" ? lang : "ENG";
             }
             Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters. Submit Q to exit program.");
             selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
