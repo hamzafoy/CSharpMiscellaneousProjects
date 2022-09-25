@@ -47,7 +47,9 @@ namespace CSharpMiscellaneousProjects
             if(Username == null)
             {
                 Console.Write("What is your name? ");
-                Username = Console.ReadLine();
+                var name = Console.ReadLine();
+                Console.WriteLine(name);
+                Username = name != "" ? name : "Guest";
             }
             if(Language == null)
             {
@@ -55,7 +57,7 @@ namespace CSharpMiscellaneousProjects
                 Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali");
                 Language = Console.ReadLine();
             }
-            Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters.");
+            Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters. Submit Q to exit program.");
             selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
             //Console.WriteLine(selection);
             ActOnSelection(Selection);
