@@ -26,23 +26,49 @@ namespace CSharpMiscellaneousProjects
             set { selection = value; }
         }
 
-        public static void GetSelection()
+        public static void GetUserSelection()
         {
             Console.WriteLine("Submit A to change your name and be greeted. Submit B to submit a word to count its letters.");
             selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
-            Console.WriteLine(selection);
+            //Console.WriteLine(selection);
+            ActOnSelection(Selection);
+        }
+
+        public static void ActOnSelection(char selection)
+        {
+            switch (selection)
+            {
+                case 'A':
+                    Console.WriteLine("What is your name?");
+                    Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
+                    Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
+                    break;
+                case 'B':
+                    Console.WriteLine("Type a word to count its letters.");
+                    Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
+                    break;
+                case 'Q':
+                    Console.WriteLine("Program closing. . ,");
+                    break;
+                default:
+                    Console.WriteLine("Default");
+                    break;
+            }
         }
     }
     public class Program
     {
         public static void Main(string[] args)
         {
-            Remote.GetSelection();
-            Console.WriteLine("What is your name?");
-            Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
-            Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
-            Console.WriteLine("Type a word to count its letters.");
-            Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
+            while(Remote.Selection != 'Q')
+            {
+                Remote.GetUserSelection();
+            }
+            //Console.WriteLine("What is your name?");
+            //Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
+            //Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
+            //Console.WriteLine("Type a word to count its letters.");
+            //Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
             //SerializeToJSON.readTextVersion();
         }
     }
