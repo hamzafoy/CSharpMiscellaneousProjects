@@ -19,6 +19,22 @@ namespace CSharpMiscellaneousProjects
 {
     public static class Remote
     {
+        private static string username;
+
+        public static string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
+
+        private static string language;
+
+        public static string Language
+        {
+            get { return language; }
+            set { language = value; }
+        }
+
         private static char selection = 'X';
         public static char Selection
         {
@@ -28,7 +44,18 @@ namespace CSharpMiscellaneousProjects
 
         public static void GetUserSelection()
         {
-            Console.WriteLine("Submit A to change your name and be greeted. Submit B to submit a word to count its letters.");
+            if(Username == null)
+            {
+                Console.Write("What is your name? ");
+                Username = Console.ReadLine();
+            }
+            if(Language == null)
+            {
+                Console.WriteLine("Select your language:");
+                Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali");
+                Language = Console.ReadLine();
+            }
+            Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters.");
             selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
             //Console.WriteLine(selection);
             ActOnSelection(Selection);
@@ -39,13 +66,11 @@ namespace CSharpMiscellaneousProjects
             switch (selection)
             {
                 case 'A':
-                    Console.WriteLine("What is your name?");
-                    Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
-                    Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
+                    Console.WriteLine($"{HelloMarhabaSalam.GreetMe(Remote.Language, Remote.Username)}\n");
                     break;
                 case 'B':
-                    Console.WriteLine("Type a word to count its letters.");
-                    Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
+                    Console.Write("Type a word to count its letters: ");
+                    Console.WriteLine($"{CharacterCounter.CharacterCount(Console.ReadLine())}");
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");
@@ -64,12 +89,6 @@ namespace CSharpMiscellaneousProjects
             {
                 Remote.GetUserSelection();
             }
-            //Console.WriteLine("What is your name?");
-            //Console.WriteLine("Type ENG for English, ARB for Arabic, SOM for Somali");
-            //Console.WriteLine(HelloMarhabaSalam.GreetMe(Console.ReadLine(), Console.ReadLine()));
-            //Console.WriteLine("Type a word to count its letters.");
-            //Console.WriteLine(CharacterCounter.CharacterCount(Console.ReadLine()));
-            //SerializeToJSON.readTextVersion();
         }
     }
 }
