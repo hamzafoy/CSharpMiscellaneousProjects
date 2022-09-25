@@ -16,12 +16,18 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
             { "SOM", new List<string> { "Salam ", ", ", "iska ", "warran." } }
         };
 
-        public static Dictionary<string, int> wordCountedInDict = new()
+        private static Dictionary<string, int> wordCountedInDict = new()
         {
             { "ARB", greetingDictionary["ARB"].Count },
             { "ENG", greetingDictionary["ENG"].Count },
             { "SOM", greetingDictionary["SOM"].Count }
         };
+
+        public static Dictionary<string, int> wordCount
+        {
+            get { return wordCountedInDict; }
+            set { wordCountedInDict = value; }
+        }
 
         public static Dictionary<string, List<string>> greeting
         {
@@ -34,21 +40,35 @@ namespace CSharpMiscellaneousProjects_HelloInManyLanguages
             switch (languageAbbreviation)
             {
                 case "ARB":
-                    if (name != null && wordCountedInDict[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
+                    if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
                     {
                         greetingDictionary[languageAbbreviation].Insert(1, name);
-                        return String.Join("", greetingDictionary["ARB"]);
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
                     } else
                     {
-                        return String.Join("", greetingDictionary["ARB"]);
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
                     }
                     
                 case "ENG":
-                    greetingDictionary[languageAbbreviation].Insert(1, name);
-                    return String.Join("", greetingDictionary["ENG"]);
+                    if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
+                    {
+                        greetingDictionary[languageAbbreviation].Insert(1, name);
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
+                    }
+                    else
+                    {
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
+                    }
                 case "SOM":
-                    greetingDictionary[languageAbbreviation].Insert(1, name);
-                    return String.Join("", greetingDictionary["SOM"]);
+                    if (name != null && wordCount[languageAbbreviation] == greetingDictionary[languageAbbreviation].Count)
+                    {
+                        greetingDictionary[languageAbbreviation].Insert(1, name);
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
+                    }
+                    else
+                    {
+                        return String.Join("", greetingDictionary[languageAbbreviation]);
+                    }
                 default:
                     return $"Dunno what language you speak mate!";
             }
