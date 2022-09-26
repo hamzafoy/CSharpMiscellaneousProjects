@@ -14,13 +14,20 @@ using CSharpMiscellaneousProjects_FileHandler;
 using CSharpMiscellaneousProjects_DotNetExamples;
 using CSharpMiscellaneousProjects_HelloInManyLanguages;
 using CSharpMiscellaneousProjects_NumberOfCharacters;
+using CSharpMiscellaneousProjects_PrintingQuotes;
 
 namespace CSharpMiscellaneousProjects
 {
     public static class Remote
     {
+        private static string[] prompts =
+        {
+            "Type A to receive a greeting",
+            "Type B to submit a word for its letters to be counted",
+            "Type C to access the menu for reading and storing quotes",
+            "Type Q to exit the program\n"
+        };
         private static string username;
-
         public static string Username
         {
             get { return username; }
@@ -28,7 +35,6 @@ namespace CSharpMiscellaneousProjects
         }
 
         private static string language;
-
         public static string Language
         {
             get { return language; }
@@ -63,10 +69,12 @@ namespace CSharpMiscellaneousProjects
                 var lang = Console.ReadLine().ToUpper();
                 Language = lang != "" ? lang : "ENG";
             }
-            Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters. Submit Q to exit program.");
+            foreach (string x in prompts)
+            {
+                Console.WriteLine(x);
+            }
             var userinput = Console.ReadLine().ToUpper();
             selection = userinput != "" ? (char)Convert.ChangeType(userinput, typeof(char)) : '!';
-            //Console.WriteLine(selection);
             ActOnSelection(Selection);
         }
 
@@ -80,6 +88,10 @@ namespace CSharpMiscellaneousProjects
                 case 'B':
                     Console.Write("Type a word to count its letters: ");
                     Console.WriteLine($"{CharacterCounter.CharacterCount(Console.ReadLine())}");
+                    break;
+                case 'C':
+                    Console.Write("A, B, or default");
+                    QuotesHandler.Remote.GetUserSelection();
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");

@@ -10,8 +10,8 @@ namespace CSharpMiscellaneousProjects_NumberOfCharacters
     {
         public static string CharacterCount(string word)
         {
-            if (word.Length == 0) return $"You must input a word to count its letters!";
-            return $"{word} has {word.Length} characters";
+            if (word.Length == 0) return $"You must input a word to count its letters!\n";
+            return $"{word} has {word.Length} characters\n";
         }
     }
 }
