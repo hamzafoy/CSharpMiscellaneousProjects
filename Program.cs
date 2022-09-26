@@ -41,24 +41,30 @@ namespace CSharpMiscellaneousProjects
             get { return selection; }
             set { selection = value; }
         }
-
+        
         public static void GetUserSelection()
         {
             if(Username == null)
             {
                 Console.Write("What is your name? ");
                 var name = Console.ReadLine();
-                Username = name != "" ? name : "Guest";
+                var splitname = name.ToCharArray();
+                if (name != "")
+                {
+                    splitname[0] = Char.ToUpper(splitname[0]);
+                }
+                string fixedname = String.Join("", splitname);
+                Username = name != "" ? fixedname : "Guest";
             }
             if(Language == null)
             {
                 Console.WriteLine("Select your language:");
                 Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali");
-                var lang = Console.ReadLine();
+                var lang = Console.ReadLine().ToUpper();
                 Language = lang != "" ? lang : "ENG";
             }
             Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters. Submit Q to exit program.");
-            var userinput = Console.ReadLine();
+            var userinput = Console.ReadLine().ToUpper();
             selection = userinput != "" ? (char)Convert.ChangeType(userinput, typeof(char)) : '!';
             //Console.WriteLine(selection);
             ActOnSelection(Selection);
