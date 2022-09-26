@@ -58,7 +58,8 @@ namespace CSharpMiscellaneousProjects
                 Language = lang != "" ? lang : "ENG";
             }
             Console.WriteLine("Submit A to receive a greeting. Submit B to submit a word to count its letters. Submit Q to exit program.");
-            selection = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
+            var userinput = Console.ReadLine();
+            selection = userinput != "" ? (char)Convert.ChangeType(userinput, typeof(char)) : '!';
             //Console.WriteLine(selection);
             ActOnSelection(Selection);
         }
@@ -76,6 +77,9 @@ namespace CSharpMiscellaneousProjects
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");
+                    break;
+                case '!':
+                    Console.WriteLine("You must input a single letter, not leave this blank!\n");
                     break;
                 default:
                     Console.WriteLine("Default");
