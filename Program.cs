@@ -15,6 +15,7 @@ using CSharpMiscellaneousProjects_DotNetExamples;
 using CSharpMiscellaneousProjects_HelloInManyLanguages;
 using CSharpMiscellaneousProjects_NumberOfCharacters;
 using CSharpMiscellaneousProjects_PrintingQuotes;
+using CSharpMiscellaneousProjects_MadLibber;
 
 namespace CSharpMiscellaneousProjects
 {
@@ -25,6 +26,7 @@ namespace CSharpMiscellaneousProjects
             "Type A to receive a greeting",
             "Type B to submit a word for its letters to be counted",
             "Type C to access the menu for reading and storing quotes",
+            "Type D to access the Mad Lib Generator",
             "Type Q to exit the program\n"
         };
         private static string username;
@@ -92,6 +94,9 @@ namespace CSharpMiscellaneousProjects
                 case 'C':
                     Console.Write("A, B, or default");
                     QuotesHandler.Remote.GetUserSelection();
+                    break;
+                case 'D':
+                    MadLibMachine.DevelopMadLib();
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");
