@@ -18,31 +18,49 @@ namespace CSharpMiscellaneousProjects_MadLibber
     *   Inputs: toy, run, slowly, beautiful
     *   Expected Result: A beautiful toy runs slowly.
     *   Actual Result: A beautiful toy runs slowly.
-    * 
+    *   
+    * PSEUDOCODE WHITEBOARD
+    *   MadLibMachine
+    *       Initialize madlibStory to contain a List of strings
+    *       
+    *       Display "Enter a noun in 1st prompt, verb in 2nd, adverb in 3rd, & an adjective in the 4th"
+    *       Prompt for noun
+    *       Prompt for verb
+    *       Prompt for adverb
+    *       Prompt for adjective
+    *       
+    *       Add noun to madlibStory List<string>
+    *       Add verb to madlibStory List<string>
+    *       Add adverb to madlibStory List<string>
+    *       Add adjective to madlibStory List<string>
+    *       
+    *       Combine madlibStory List<string> into a single string.
+    *       
+    *       Display madlibStory in console.
     */
     public class MadLibMachine
     {
-        private static List<string> madlib = new()
+        private static List<string> madlibStory = new()
         {
             "A "
         };
 
-        public static List<string> Madlib
+        public static List<string> MadlibStory
         {
-            get { return madlib; }
-            set { madlib = value; }
+            get { return madlibStory; }
+            set { madlibStory = value; }
         }
 
         public static void DevelopMadLib()
         {
             Console.WriteLine("Enter a noun in 1st prompt, verb in 2nd, adverb in 3rd, & an adjective in the 4th");
             string[] arrayOfInputs = { Console.ReadLine(), Console.ReadLine(), Console.ReadLine(), Console.ReadLine() };
-            Madlib.Add($"{arrayOfInputs[3]} ");
-            Madlib.Add($"{arrayOfInputs[0]} ");
-            Madlib.Add($"{arrayOfInputs[1]}s ");
-            Madlib.Add($"{arrayOfInputs[2]}.\n");
+            MadlibStory.Add($"{arrayOfInputs[3]} ");
+            MadlibStory.Add($"{arrayOfInputs[0]} ");
+            MadlibStory.Add($"{arrayOfInputs[1]}s ");
+            MadlibStory.Add($"{arrayOfInputs[2]}.\n");
             Console.WriteLine("\nThe story goes. . .");
-            Console.WriteLine(String.Join("", Madlib));
+            Console.WriteLine(String.Join("", MadlibStory));
         }
     }
 }
