@@ -6,6 +6,30 @@ using System.Threading.Tasks;
 
 namespace CSharpMiscellaneousProjects_HelloInManyLanguages
 {
+    /*
+    * Create a program that returns a greeting in the appropriate language
+    * chosen by the user at the initialization of the program and with the
+    * user's name concatenated.
+    *
+    * INPUTS: Abbreviation of Language, Username
+    * PROCESSES: Searching and returning the correct greeting, injecting username into the greeting
+    * OUTPUTS: Correct language's greeting with username appropriately placed
+    * 
+    * TEST DRIVEN DEV -
+    *   Inputs: Hamza, ARB
+    *   Expected Result: Marhaba Hamza, kayfa haluk.
+    *   Actual Result: Marhaba Hamza, kayfa haluk.
+    *   
+    * PSEUDOCODE WHITEBOARD
+    *   HelloMarhabaSalam.GreetMe(languageAbbreviation, name)
+    *       Execute Method GreetMe with provided parameters
+    *       
+    *       Search Dictionary of greetings with the languageAbbreviation
+    *       Insert name into the resulting array of greeting
+    *       Join together the string array to generate a full greeting string
+    *       
+    *       Display greeting in console.
+    */
     public class HelloMarhabaSalam
     {
 
