@@ -44,7 +44,7 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 cmd = new SQLiteCommand();
                 conextion.Open();
                 cmd.Connection = conextion;
-                cmd.CommandText = "INSERT INTO Quote(Sentence, Author) values (" + quote + "','" + source + "')";
+                cmd.CommandText = "INSERT INTO Quote(Sentence, Author) values ('" + quote + "','" + source + "')";
                 cmd.ExecuteNonQuery();
                 conextion.Close();
             }
@@ -56,7 +56,7 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    Console.WriteLine("#" + reader[0] + "'" + reader[1] + "' - " + reader[2]);
+                    Console.WriteLine("#" + reader[0] + "'" + reader[1] + "' - " + reader[2] + "\n");
                 }
                 conextion.Close();
             }
@@ -82,7 +82,7 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 switch (selection)
                 {
                     case 'A':
-                        Console.WriteLine("Printing Quotes");
+                        Console.WriteLine("\nPrinting Quotes\n");
                         DatabaseRemote.RetrieveAndReadData();
                         break;
                     case 'B':

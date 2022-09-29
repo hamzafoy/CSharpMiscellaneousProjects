@@ -66,8 +66,8 @@ namespace CSharpMiscellaneousProjects
             }
             if(Language == null)
             {
-                Console.WriteLine("Select your language:");
-                Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali");
+                Console.WriteLine("\nSelect your language:");
+                Console.WriteLine("ENG for English, ARB for Arabic, SOM for Somali\n");
                 var lang = Console.ReadLine().ToUpper();
                 Language = lang != "" ? lang : "ENG";
             }
@@ -93,7 +93,7 @@ namespace CSharpMiscellaneousProjects
                     break;
                 case 'C':
                     QuotesHandler.DatabaseRemote.CreateDatabase();
-                    Console.Write("Type A to read list of saved quotes or Type B to add a quote");
+                    Console.Write("Type A to read list of saved quotes or Type B to add a quote: ");
                     QuotesHandler.Remote.GetUserSelection();
                     break;
                 case 'D':
