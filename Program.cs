@@ -71,6 +71,7 @@ namespace CSharpMiscellaneousProjects
                 var lang = Console.ReadLine().ToUpper();
                 Language = lang != "" ? lang : "ENG";
             }
+            Console.WriteLine("\n");
             foreach (string x in prompts)
             {
                 Console.WriteLine(x);
