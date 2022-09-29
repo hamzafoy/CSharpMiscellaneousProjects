@@ -92,7 +92,8 @@ namespace CSharpMiscellaneousProjects
                     Console.WriteLine($"{CharacterCounter.CharacterCount(Console.ReadLine())}");
                     break;
                 case 'C':
-                    Console.Write("A, B, or default");
+                    QuotesHandler.DatabaseRemote.CreateDatabase();
+                    Console.Write("Type A to read list of saved quotes or Type B to add a quote");
                     QuotesHandler.Remote.GetUserSelection();
                     break;
                 case 'D':
