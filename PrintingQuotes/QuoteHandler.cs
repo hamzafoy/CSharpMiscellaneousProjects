@@ -61,6 +61,18 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 conextion.Close();
             }
 
+            public static void SearchDataByName(string searchterm)
+            {
+                cmd = new SQLiteCommand("SELECT * FROM Quote WHERE Author = '" + searchterm + "'", conextion);
+                conextion.Open();
+                reader = cmd.ExecuteReader();
+                Console.WriteLine($"{searchterm} has the following quotes: ");
+                while (reader.Read())
+                {
+                    Console.WriteLine("#" + reader[0] + " '" + reader[1] + "' - " + reader[2]);
+                }
+            }
+
         }
         public static class Remote
         {
@@ -88,6 +100,10 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                     case 'B':
                         Console.WriteLine("Provide the quote without quotation marks, then the attributed's name");
                         DatabaseRemote.InsertData(Console.ReadLine(), Console.ReadLine());
+                        break;
+                    case 'C':
+                        Console.Write("Type the name of the quoted: ");
+                        DatabaseRemote.SearchDataByName(Console.ReadLine());
                         break;
                     default:
                         Console.WriteLine("Terminal Default");
