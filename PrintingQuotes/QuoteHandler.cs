@@ -56,7 +56,7 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 reader = cmd.ExecuteReader();
                 while(reader.Read())
                 {
-                    Console.WriteLine("#" + reader[0] + "'" + reader[1] + "' - " + reader[2]);
+                    Console.WriteLine("#" + reader[0] + " '" + reader[1] + "' - " + reader[2]);
                 }
                 conextion.Close();
             }
