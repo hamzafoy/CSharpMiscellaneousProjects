@@ -25,7 +25,13 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                                               ID INTEGER PRIMARY KEY AUTOINCREMENT,
                                               Sentence VARCHAR(2000) NOT NULL,
                                               Author VARCHAR(100) NOT NULL
-                                              )";
+                                              );
+                                              CREATE TABLE Author(
+                                              ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                                              Quote_Key INTEGER NOT NULL,
+                                              First_Name VARCHAR(50) NOT NULL,
+                                              Last_Name VARCHAR(50) NOT NULL
+                                              );";
                     conextion = new SQLiteConnection("Data Source=QuotesHandler.db3;Version=3;");
                     conextion.Open();
                     cmd = new SQLiteCommand(CreateTableQuery, conextion);
