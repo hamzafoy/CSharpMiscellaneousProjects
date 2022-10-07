@@ -22,15 +22,14 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                 {
                     SQLiteConnection.CreateFile("QuotesHandler.db3");
                     string CreateTableQuery = @"CREATE TABLE Quote(
-                                              ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                              Sentence VARCHAR(2000) NOT NULL,
-                                              Author VARCHAR(100) NOT NULL
+                                              Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                              Sentence VARCHAR(2000) NOT NULL
                                               );
                                               CREATE TABLE Author(
-                                              ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                                              Quote_Key INTEGER NOT NULL,
                                               First_Name VARCHAR(50) NOT NULL,
-                                              Last_Name VARCHAR(50) NOT NULL
+                                              Last_Name VARCHAR(50),
+                                              Quote_Id INTEGER,
+                                              FOREIGN KEY(Quote_Id) REFERENCES Quote(Id)
                                               );";
                     conextion = new SQLiteConnection("Data Source=QuotesHandler.db3;Version=3;");
                     conextion.Open();
@@ -47,10 +46,14 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
 
             public static void InsertData(string quote, string source)
             {
-                cmd = new SQLiteCommand();
+                string[] FullName = source.Split(' ');
+
+                string InsertQuery = @"INSERT INTO Quote(Sentence) values ('" + quote + "'); INSERT INTO Author(First_Name, Last_Name) values ('" + FullName[0] + "','" + FullName[1] + "');";
                 conextion.Open();
-                cmd.Connection = conextion;
-                cmd.CommandText = "INSERT INTO Quote(Sentence, Author) values ('" + quote + "','" + source + "')";
+                cmd = new SQLiteCommand(InsertQuery, conextion);
+                //cmd.Connection = conextion;
+                //cmd.CommandText = "@INSERT INTO Quote(Sentence) values ('" + quote + "');";
+                //cmd.CommandText = "INSERT INTO Author(First_Name, Last_Name) values ('" + FullName[0] + "','" + FullName[1] + "');";
                 cmd.ExecuteNonQuery();
                 conextion.Close();
             }
