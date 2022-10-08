@@ -23,7 +23,8 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
                     SQLiteConnection.CreateFile("QuotesHandler.db3");
                     string CreateTableQuery = @"CREATE TABLE Quote(
                                               Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                              Sentence VARCHAR(2000) NOT NULL
+                                              Sentence VARCHAR(2000) NOT NULL,
+                                              Author VARCHAR(100) NOT NULL
                                               );
                                               CREATE TABLE Author(
                                               First_Name VARCHAR(50) NOT NULL,
@@ -48,7 +49,7 @@ namespace CSharpMiscellaneousProjects_PrintingQuotes
             {
                 string[] FullName = source.Split(' ');
 
-                string InsertQuery = @"INSERT INTO Quote(Sentence) values ('" + quote + "'); INSERT INTO Author(First_Name, Last_Name) values ('" + FullName[0] + "','" + FullName[1] + "');";
+                string InsertQuery = @"INSERT INTO Quote(Sentence, Author) values ('" + quote + "','" + source + "'); INSERT INTO Author(First_Name, Last_Name) values ('" + FullName[0] + "','" + FullName[1] + "');";
                 conextion.Open();
                 cmd = new SQLiteCommand(InsertQuery, conextion);
                 //cmd.Connection = conextion;
