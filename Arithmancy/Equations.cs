@@ -10,9 +10,24 @@ namespace CSharpMiscellaneousProjects_Arithmancy
     {
         public static class Arithmetics
         {
-            public static void Addition(int firstvalue, int secondvalue)
+            public static int Addition(int firstvalue, int secondvalue)
             {
-                Console.WriteLine($"{firstvalue} + {secondvalue} equals {firstvalue + secondvalue}");
+                return firstvalue + secondvalue;
+            }
+
+            public static int Subtraction(int firstvalue, int secondvalue)
+            {
+                return firstvalue - secondvalue;
+            }
+
+            public static int Multiplication(int firstvalue, int secondvalue)
+            {
+                return firstvalue * secondvalue;
+            }
+
+            public static int Division(int firstvalue, int secondvalue)
+            {
+                return firstvalue / secondvalue;
             }
         }
         public static class Remote
