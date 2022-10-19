@@ -57,12 +57,12 @@ namespace CSharpMiscellaneousProjects_Arithmancy
 
             public static void GetUserSelection()
             {
-                var firstinput = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
-                var secondinput = (char)Convert.ChangeType(Console.ReadLine(), typeof(char));
+                int firstinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
+                int secondinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
                 ActOnSelection(firstinput, secondinput);
             }
 
-            public static void ActOnSelection(char first, char second)
+            public static void ActOnSelection(int first, int second)
             {
                 string[] mathoutputs =
                 {
