@@ -16,6 +16,7 @@ using CSharpMiscellaneousProjects_HelloInManyLanguages;
 using CSharpMiscellaneousProjects_NumberOfCharacters;
 using CSharpMiscellaneousProjects_PrintingQuotes;
 using CSharpMiscellaneousProjects_MadLibber;
+using CSharpMiscellaneousProjects_Arithmancy;
 
 namespace CSharpMiscellaneousProjects
 {
@@ -99,6 +100,9 @@ namespace CSharpMiscellaneousProjects
                     break;
                 case 'D':
                     MadLibMachine.DevelopMadLib();
+                    break;
+                case 'E':
+                    ArithmeticOperations.Remote.GetUserSelection();
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");
