@@ -57,6 +57,7 @@ namespace CSharpMiscellaneousProjects_Arithmancy
 
             public static void GetUserSelection()
             {
+                Console.WriteLine("Enter two numbers to execute basic math on them");
                 int firstinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
                 int secondinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
                 ActOnSelection(firstinput, secondinput);

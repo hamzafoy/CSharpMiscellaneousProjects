@@ -28,6 +28,7 @@ namespace CSharpMiscellaneousProjects
             "Type B to submit a word for its letters to be counted",
             "Type C to access the menu for reading and storing quotes",
             "Type D to access the Mad Lib Generator",
+            "Type E to access the basic Mathematic Equations generator",
             "Type Q to exit the program\n"
         };
         private static string username;
