@@ -67,10 +67,10 @@ namespace CSharpMiscellaneousProjects_Arithmancy
             {
                 string[] mathoutputs =
                 {
-                    $"{first} + {second} = {(int)first + (int)second}",
-                    $"{first} - {second} = {(int)first - (int)second}",
-                    $"{first} times {second} = {(int)first * (int)second}",
-                    $"{first} divided by {second} = {(int)first / (int)second}"
+                    $"{first} + {second} = {Arithmetics.Addition((int)first,(int)second)}",
+                    $"{first} - {second} = {Arithmetics.Subtraction((int)first,(int)second)}",
+                    $"{first} times {second} = {Arithmetics.Multiplication((int)first,(int)second)}",
+                    $"{first} divided by {second} = {Arithmetics.Division((int)first,(int)second)}"
                 };
                 foreach (string x in mathoutputs)
                 {
