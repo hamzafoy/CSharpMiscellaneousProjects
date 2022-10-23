@@ -8,6 +8,13 @@ namespace CSharpMiscellaneousProjects_Arithmancy
 {
     public class ArithmeticOperations
     {
+        public static class Calculations
+        {
+            public static float RectangularRoomArea()
+            {
+
+            }
+        }
         public static class Arithmetics
         {
             public static int Addition(int firstvalue, int secondvalue)
