@@ -15,7 +15,7 @@ namespace CSharpMiscellaneousProjects_Arithmancy
                 return new[]
                 {
                     firstvalue * secondvalue, //measure in feet
-                    (firstvalue + secondvalue) * 0.09290304, //measure in meters
+                    Math.Round((firstvalue * secondvalue) * 0.09290304, 3), //measure in meters
                 };
             }
         }
