@@ -103,7 +103,10 @@ namespace CSharpMiscellaneousProjects
                     MadLibMachine.DevelopMadLib();
                     break;
                 case 'E':
-                    ArithmeticOperations.Remote.GetUserSelection();
+                    ArithmeticOperations.Remote.GetUserSelectionForBasicMath();
+                    break;
+                case 'F':
+                    ArithmeticOperations.Remote.GetUserSelectionForRectangularArea();
                     break;
                 case 'Q':
                     Console.WriteLine("Program closing. . ,");

@@ -14,8 +14,8 @@ namespace CSharpMiscellaneousProjects_Arithmancy
             {
                 return new[]
                 {
-                    firstvalue * secondvalue,
-                    (firstvalue + secondvalue) / 3.28,
+                    firstvalue * secondvalue, //measure in feet
+                    (firstvalue + secondvalue) * 0.09290304, //measure in meters
                 };
             }
         }
@@ -66,27 +66,53 @@ namespace CSharpMiscellaneousProjects_Arithmancy
                 set { secondvalue = value; }
             }
 
-            public static void GetUserSelection()
+            public static void GetUserSelectionForBasicMath()
             {
                 Console.WriteLine("Enter two numbers to execute basic math on them");
                 int firstinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
                 int secondinput = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
-                ActOnSelection(firstinput, secondinput);
+                ActOnSelection(firstinput, secondinput, 'a');
             }
 
-            public static void ActOnSelection(int first, int second)
+            public static void GetUserSelectionForRectangularArea()
             {
-                string[] mathoutputs =
+                Console.WriteLine("Enter length & width of a rectangular to figure area");
+                int length = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
+                int width = (int)Convert.ChangeType(Console.ReadLine(), typeof(int));
+                ActOnSelection(length, width, 'b');
+            }
+
+            public static void ActOnSelection(int first, int second, char option)
+            {
+                switch (option)
                 {
-                    $"{first} + {second} = {Arithmetics.Addition((int)first,(int)second)}",
-                    $"{first} - {second} = {Arithmetics.Subtraction((int)first,(int)second)}",
-                    $"{first} times {second} = {Arithmetics.Multiplication((int)first,(int)second)}",
-                    $"{first} divided by {second} = {Arithmetics.Division((int)first,(int)second)}"
-                };
-                foreach (string x in mathoutputs)
-                {
-                    Console.WriteLine(x);
+                    case 'a':
+                        string[] mathoutputs =
+                        {
+                            $"{first} + {second} = {Arithmetics.Addition((int)first,(int)second)}",
+                            $"{first} - {second} = {Arithmetics.Subtraction((int)first,(int)second)}",
+                            $"{first} times {second} = {Arithmetics.Multiplication((int)first,(int)second)}",
+                            $"{first} divided by {second} = {Arithmetics.Division((int)first,(int)second)}"
+                        };
+                        foreach (string x in mathoutputs)
+                        {
+                            Console.WriteLine(x);
+                        };
+                        break;
+                    case 'b':
+                        string[] areaoutputs =
+                        {
+                            $"You entered dimensions of {first} ft by {second} ft.",
+                            $"The area is {Calculations.RectangularRoomArea(first,second)[0]} sq ft.",
+                            $"Or {Calculations.RectangularRoomArea(first,second)[1]} sq meters."
+                        };
+                        foreach (string x in areaoutputs)
+                        {
+                            Console.WriteLine(x);
+                        }
+                        break;
                 }
+                
             }
         }
     }
