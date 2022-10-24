@@ -10,9 +10,13 @@ namespace CSharpMiscellaneousProjects_Arithmancy
     {
         public static class Calculations
         {
-            public static float RectangularRoomArea()
+            public static double[] RectangularRoomArea(int firstvalue, int secondvalue)
             {
-
+                return new[]
+                {
+                    firstvalue * secondvalue,
+                    (firstvalue + secondvalue) / 3.28,
+                };
             }
         }
         public static class Arithmetics
