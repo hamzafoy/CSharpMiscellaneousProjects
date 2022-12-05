@@ -17,6 +17,7 @@ using CSharpMiscellaneousProjects_NumberOfCharacters;
 using CSharpMiscellaneousProjects_PrintingQuotes;
 using CSharpMiscellaneousProjects_MadLibber;
 using CSharpMiscellaneousProjects_Arithmancy;
+using CSharpMiscellaneousProjects_LinqExamples;
 
 namespace CSharpMiscellaneousProjects
 {
@@ -124,6 +125,8 @@ namespace CSharpMiscellaneousProjects
     {
         public static void Main(string[] args)
         {
+            LinqFirstExample.ExecuteNonLinqMethods();
+
             while(Remote.Selection != 'Q')
             {
                 Remote.GetUserSelection();
