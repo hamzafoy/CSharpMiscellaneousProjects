@@ -22,6 +22,22 @@ namespace CSharpMiscellaneousProjects_LinqExamples
             ShowLargeFilesWithoutLinq(windowsPath);
         }
 
+        public static void ExecuteLinqMethods()
+        {
+            ShowLargeFilesWithoutLinq(windowsPath);
+        }
+
+        private static void ShowLargeFilesWithLinq(string windowsPath)
+        {
+            var linqQuery = from file in new DirectoryInfo(windowsPath).GetFiles()
+                            orderby file.Length descending
+                            select file;
+            foreach(var file in linqQuery.Take(5))
+            {
+                Console.WriteLine($"{file.Name,-25} ::-> {file.Length,10:N0}");
+            }
+        }
+
         private static void ShowLargeFilesWithoutLinq(string windowsPath)
         {
             DirectoryInfo directory = new DirectoryInfo(windowsPath);
@@ -30,7 +46,7 @@ namespace CSharpMiscellaneousProjects_LinqExamples
             for(int a = 0; a < 5; a++)
             {
                 FileInfo file = files[a];
-                Console.WriteLine($"{file.Name, -25} ::->:: {file.Length, 10:N0}");
+                Console.WriteLine($"{file.Name, -25} ::-> {file.Length, 10:N0}");
             }
         }
     }

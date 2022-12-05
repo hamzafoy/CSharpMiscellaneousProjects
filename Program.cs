@@ -125,7 +125,7 @@ namespace CSharpMiscellaneousProjects
     {
         public static void Main(string[] args)
         {
-            LinqFirstExample.ExecuteNonLinqMethods();
+            LinqFirstExample.ExecuteLinqMethods();
 
             while(Remote.Selection != 'Q')
             {
