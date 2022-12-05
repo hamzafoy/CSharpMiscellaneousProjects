@@ -27,9 +27,10 @@ namespace CSharpMiscellaneousProjects_LinqExamples
             DirectoryInfo directory = new DirectoryInfo(windowsPath);
             FileInfo[] files = directory.GetFiles();
             Array.Sort(files, new FileInfoComparer());
-            foreach(FileInfo file in files)
+            for(int a = 0; a < 5; a++)
             {
-                Console.WriteLine($"{file.Name} ::->:: {file.Length}");
+                FileInfo file = files[a];
+                Console.WriteLine($"{file.Name, -25} ::->:: {file.Length, 10:N0}");
             }
         }
     }
