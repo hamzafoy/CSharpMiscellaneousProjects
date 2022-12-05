@@ -32,6 +32,11 @@ namespace CSharpMiscellaneousProjects_LinqExamples
             var linqQuery = from file in new DirectoryInfo(windowsPath).GetFiles()
                             orderby file.Length descending
                             select file;
+            /*
+             This same linqQuery can be written as chained LINQ methods as such:
+
+            var query = new DirectoryInfo(windowsPath).GetFiles().OrderByDescending(file => file.Length).Take(5);
+             */
             foreach(var file in linqQuery.Take(5))
             {
                 Console.WriteLine($"{file.Name,-25} ::-> {file.Length,10:N0}");
